@@ -45,7 +45,7 @@ Google Sheets Data Source (Sample): Explore Google Sheets Dataset
 
 🛠️ Setup & Installation
 1. Clone the Repository
-git clone [https://github.com/serviolfragoso/revops-sales-forecasting-engine.git](https://github.com/serviolfragoso/revops-sales-forecasting-engine.git)
+git clone [https://github.com/serviolfragoso/revops-sales-forecasting-engine.git](https://github.com/serviolfragoso/stochastic-synthetic-data-generator.git)
 cd revops-sales-forecasting-engine
 
 2. Install Dependencies
