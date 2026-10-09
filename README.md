@@ -36,6 +36,12 @@ This project implements a **Quantitative Sales Forecasting & Workforce Simulatio
 📊 Live Interactive Dashboards & Data SourceLooker Studio Executive Dashboard: View Live Looker Studio ReportGoogle Sheets Data Source (Sample): Explore Google Sheets Dataset🛠️ Setup & Installation1. Clone the RepositoryBashgit clone [https://github.com/serviolfragoso/revops-sales-forecasting-engine.git](https://github.com/serviolfragoso/revops-sales-forecasting-engine.git)
 cd revops-sales-forecasting-engine
 2. Install DependenciesBashpip install pandas numpy gspread google-auth
-3. Configure CredentialsPlace your Google Cloud Service Account JSON key in the root directory and name it service-account.json (Note: Excluded from version control via .gitignore).4. Run the Simulation PipelineBashpython datagenerator.py
-📈 Design Decisions & Mathematical BreakdownWhy Poisson over Uniform/Normal? Sales counts are discrete, bounded at zero, and exhibit variance characteristics that fit counting processes well. The expected lambda ($\lambda_{it}$) is mathematically derived as:$$\lambda_{it} = \text{Base} \times \text{Skill}_i \times \text{RegionMultiplier} \times \text{Seasonality}_t \times \text{RampUp}(\text{Tenure})$$Lognormal Skill Distribution: Prevents negative skill weights while creating a realistic right-skewed performance distribution where a small percentage of agents significantly outperform the baseline.
-¡Copia este contenido, guárdalo en tu archivo `README.md` y súbelo a tu repositorio junto co
+3. Configure CredentialsPlace your Google Cloud Service Account JSON key in the root directory and name it service-account.json (Note: Excluded from version control via .gitignore).
+4. Run the Simulation PipelineBashpython datagenerator.py
+📈 Design Decisions & Mathematical Breakdown
+
+* **Why Poisson over Uniform/Normal?** Sales counts are discrete, bounded at zero, and exhibit variance characteristics that fit counting processes well. The expected lambda ($\lambda_{it}$) is mathematically derived as:
+
+```math
+\lambda_{it} = \text{Base} \times \text{Skill}_i \times \text{RegionMultiplier} \times \text{Seasonality}_t \times \text{RampUp}(\text{Tenure})
+Lognormal Skill Distribution: Prevents negative skill weights while creating a realistic right-skewed performance distribution where a small percentage of agents significantly outperform the baseline.
