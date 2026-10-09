@@ -61,7 +61,7 @@ python datagenerator.py
 
 📈 Design Decisions & Mathematical BreakdownWhy Poisson over Uniform/Normal? Sales counts are discrete, bounded at zero, and exhibit variance characteristics that fit counting processes well. The expected lambda ($\lambda_{it}$) is mathematically derived as:
 
-```Math
+
 \lambda_{it} = \text{Base} \times \text{Skill}_i \times \text{RegionMultiplier} \times \text{Seasonality}_t \times \text{RampUp}(\text{Tenure})
-```
+
 Lognormal Skill Distribution: Prevents negative skill weights while creating a realistic right-skewed performance distribution where a small percentage of agents significantly outperform the baseline.
