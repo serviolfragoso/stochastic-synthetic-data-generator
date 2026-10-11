@@ -1,16 +1,28 @@
-# 🚗 Stochastic Sales Force & Attrition Simulation Engine
+# 🚗 Synthetic Data Generator & Workforce Simulation Engine
 
-> An enterprise-grade, zero-backend data pipeline and stochastic simulation engine designed to model sales force productivity, tenure dynamics, seasonal volatility, and human capital churn.
+> An enterprise-grade, zero-backend data pipeline and stochastic simulation engine designed to generate realistic commercial panel datasets (3.9k+ records), modeling agent productivity, tenure curves, seasonal volatility, and workforce turnover.
 
 ---
 
 ## 🧭 Executive Summary & Business Context
 
-In commercial operations, forecasting sales without factoring in agent tenure curves, regional channel dynamics, and team turnover (*churn*) leads to severe financial miscalculations. 
+In data science, analytics engineering, and business intelligence, having access to clean, realistic historical data for testing pipelines and dashboards is a constant bottleneck. Real corporate data is sensitive and proprietary, making portfolio-building difficult.
 
-This project implements a **Quantitative Sales Forecasting & Workforce Simulation Pipeline** in Python. It uses statistical distributions (**Poisson** for discrete transaction counts and **Lognormal** for individual skill variance) combined with actuarial churn matrices to generate a synthetic panel dataset over a 36-month horizon (~21,600 atomic records). The pipeline automatically sanitizes and syncs data to Google Sheets via Google Cloud Service Accounts, serving a live executive dashboard in Looker Studio.
+The idea is to create a synthetic data set where we can create for several years, N number of agents and their sales result each month, so we have 
+* Starting month and year 
+* Number of years to be simulated
+* 4 regions 
+* 2 sales channel 
+* Sales success weight for each region and channel
+* Agent tenure
+* Tenure ramp up (affects sales resultos for new agents)
+* Churn probability for each rep
+* Monthly average sales per agent
+* Number of agents to have in or pool each month
 
----
+With this parameters we can create a data for the number of years to be simulated given by the user, the main idea is to be able to create N number of datasets to practice statics tools, forecasting, create dashboards or any task required by the user. 
+
+This project solves this by implementing a **Stochastic Simulation Pipeline in Python**. It leverages statistical distributions (**Poisson** for transaction counts and **Lognormal** for skill variance) alongside actuarial churn matrices to generate a 36-month synthetic panel dataset. The pipeline automatically sanitizes and syncs data via Google Cloud Service Accounts to Google Sheets, powering a live executive dashboard in Looker Studio.
 
 ## 🏗️ System Architecture & Workflow
 
