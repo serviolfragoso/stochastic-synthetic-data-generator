@@ -31,11 +31,17 @@ This project implements a **Quantitative Sales Forecasting & Workforce Simulatio
 
 📁 Repository Structure
 revops-sales-forecasting-engine/
+
 │
+
 ├── config_reps.py          # Centralized configuration (Seasonality, Churn matrix, Regions)
+
 ├── datagenerator.py        # Core simulation class (SalesForceSimulator) and NumPy logic
+
 ├── gsheets_loader.py       # Google Sheets API client and batch ingestion handler
+
 ├── requirements.txt        # Project dependencies (pandas, numpy, gspread, google-auth)
+
 └── README.md               # Technical documentation
 
 📊 Live Interactive Dashboards & Data Source
@@ -59,9 +65,9 @@ Place your Google Cloud Service Account JSON key in the root directory and name 
 Bash
 python datagenerator.py
 
-📈 Design Decisions & Mathematical BreakdownWhy Poisson over Uniform/Normal? Sales counts are discrete, bounded at zero, and exhibit variance characteristics that fit counting processes well. The expected lambda ($\lambda_{it}$) is mathematically derived as:
+📈 Design Decisions & Mathematical BreakdownWhy Poisson over Uniform/Normal? Sales counts are discrete, bounded at zero, and exhibit variance characteristics that fit counting processes well. The expected lambda($\lambda_{i,t}$ is mathematically derived as:
 
 
-\lambda_{it} = \text{Base} \times \text{Skill}_i \times \text{RegionMultiplier} \times \text{Seasonality}_t \times \text{RampUp}(\text{Tenure})
+$\lambda_{i,t} = \text{Base} \times \text{Skill}_i \times \text{RegionMultiplier}_r \times \text{Seasonality}_t \times \text{RampUp}_m$
 
 Lognormal Skill Distribution: Prevents negative skill weights while creating a realistic right-skewed performance distribution where a small percentage of agents significantly outperform the baseline.
